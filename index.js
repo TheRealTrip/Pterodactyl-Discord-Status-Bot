@@ -26,7 +26,7 @@ if (message.content == config.prefix + 'status') {
         if(serverStatus == "running") {
             const embed = new MessageEmbed()
             .setColor('#00d26b')
-            .setTitle('Modded Server Status')
+            .setTitle('Server Status')
             .setDescription('Server is running! :green_circle: ')
             .setTimestamp()
             .setFooter({ text: 'Bot created with love by TheRealTrip' });
@@ -34,7 +34,7 @@ if (message.content == config.prefix + 'status') {
         }else if (serverStatus == "stopped") {
             const embed = new MessageEmbed()
             .setColor('#ff0000')
-            .setTitle('Modded Server Status')
+            .setTitle('Server Status')
             .setDescription('Server is not running! :red_circle: ')
             .setTimestamp()
             .setFooter({ text: 'Bot created with love by TheRealTrip' });
@@ -42,7 +42,7 @@ if (message.content == config.prefix + 'status') {
         }else if(serverStatus == "starting") {
             const embed = new MessageEmbed()
             .setColor('#ff0000')
-            .setTitle('Modded Server Status')
+            .setTitle('Server Status')
             .setDescription('Server is starting! :yellow_circle: ')
             .setTimestamp()
             .setFooter({ text: 'Bot created with love by TheRealTrip' });
@@ -85,7 +85,14 @@ client.on('messageCreate', message => {
 
 client.on('messageCreate', message => {
 if(message.content == config.prefix + "help") {
-    message.channel.send("Type !status to get the status of the modded server!")
+            const embed = new MessageEmbed()
+            .setColor('#ff0000')
+            .setTitle('Bot Help')
+            .setDescription('To check the status run ' + config.prefix + 'status')
+            .setTimestamp()
+            .setFooter({ text: 'Bot created with love by TheRealTrip' });
+            message.channel.send({ embeds: [embed] });
+
 }
 });
 
